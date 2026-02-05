@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Mamss 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f6f4f1, #eae3dc);
+      font-family: 'Georgia', serif;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 35px 30px;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      width: 340px;
+    }
+
+    h1 {
+      color: #3e3e3e;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #777;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 10px 26px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    #yes {
+      background: #6b705c;
+      color: #fff;
+    }
+
+    #yes:hover {
+      background: #5a5f4f;
+    }
+
+    #no {
+      background: #d6ccc2;
+      color: #555;
+      position: absolute;
+      left: 0;
+    }
+
+    .heart {
+      font-size: 50px;
+      margin-bottom: 15px;
+      animation: float 1.2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Mamss 🤍</h1>
+    <p>Would you be my Valentine Baby?</p>
+
+    <div class="buttons">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
+
+    let attempts = 0;
+
+    noBtn.addEventListener("mouseover", () => {
+      attempts++;
+
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 90 - 45;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+      if (attempts > 6) {
+        noBtn.style.display = "none";
+        yesBtn.style.transform = "scale(1.2)";
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      card.innerHTML = `
+        <div class="heart">🤍</div>
+        <h1>Thank you, Mamss</h1>
+        <p>Hehe! I love you soo much.</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
